@@ -1,17 +1,12 @@
+"use client";
 import Link from "next/link";
 
-import { createClient } from "@/utils/supabase/server";
 import React from "react";
 import { GoHomeFill } from "react-icons/go";
-import { FaUserCircle } from "react-icons/fa";
-import LogOut from "./LogOut";
-
-const Navbar = async () => {
-  const supabase = createClient();
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+const Navbar = () => {
+  // this useUser is a hook provided by clerk for client components to get the user authState
+  const { isLoaded, isSignedIn, user } = useUser();
 
   return (
     <header className="w-full text-white bg-indigo-900">
@@ -21,21 +16,19 @@ const Navbar = async () => {
         </Link>
 
         <div className="flex items-center gap-3">
-          {user ? (
-            <>
-              <LogOut />
-              <FaUserCircle fontSize={30} />
-              <span>{user.user_metadata.userName}</span>
-            </>
+          {!isLoaded ? (
+            <div role="status" className="max-w-sm animate-pulse">
+              <div className="h-7 bg-gray-200 rounded-md dark:bg-gray-700 w-24"></div>
+              <span className="sr-only">Loading...</span>
+            </div>
+          ) : isSignedIn ? (
+            <UserButton />
           ) : (
-            <>
-              <Link
-                href="/register"
-                className=" rounded-xl border-2 border-blue-600  bg-blue-600 px-5 py-2 font-semibold text-white transition-all  hover:bg-indigo-600 "
-              >
-                ثبت نام
-              </Link>
-            </>
+            <button className=" rounded-md border-2 border-blue-600  bg-blue-600 px-5 py-2 font-semibold text-white transition-all  hover:bg-indigo-600 ">
+              <SignInButton mode="modal">
+                <p className="cursor-pointer">ورود/ثبت نام</p>
+              </SignInButton>
+            </button>
           )}
         </div>
       </div>
