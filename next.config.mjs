@@ -4,9 +4,9 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: "nabsteel.rahkartest.ir",
+                hostname: "jqwssvvtzamgbbioroul.supabase.co",
                 port: '',
-                pathname: '/wp-content/uploads/2024/04/card-3.webp/**',
+                pathname: '/storage/v1/object/public/post-imgs/**',
             },
         ]
     }

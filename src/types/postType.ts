@@ -6,7 +6,7 @@ export type PostCardType = {
   modified_gmt: string;
   slug: string;
   status: "publish" | "semiFinished" | "completing";
-  type: "post" | "news";
+  type: "post" | "news" | "information";
   title: string;
   content: {
     rendered: string;
@@ -26,13 +26,13 @@ export type PostCardType = {
   featured_media_object: {
     id: number;
     title: string;
-    caption: "";
-    description: "";
+    caption: string;
+    description: string;
     media_details: {
-      width: 421;
-      height: 247;
-      filesize: 8174;
+      width: number;
+      height: number;
+      filesize: number;
     };
-    source_url: "https://nabsteel.rahkartest.ir/wp-content/uploads/2024/04/card-3.webp";
+    source_url: string;
   };
 };

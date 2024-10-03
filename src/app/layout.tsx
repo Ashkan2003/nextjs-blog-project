@@ -5,6 +5,7 @@ import "./globals.css";
 import ReactQueryPvorider from "@/providers/ReactQueryProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ClerkProvider } from "@clerk/nextjs";
+import Navbar from "@/components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 

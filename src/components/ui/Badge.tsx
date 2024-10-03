@@ -1,7 +1,13 @@
 import React from "react";
 
-function Badge({ children, type }) {
-  const base = "rounded-md px-3 py-[2px] text-sm font-semibold";
+interface Props {
+  badgeTitle: string;
+  badgeType: "primary" | "secondary" | "tertiary" | "quaternary";
+}
+
+function Badge({ badgeTitle, badgeType }: Props) {
+  const base = "rounded-md px-3 me-1 py-[2px] text-sm font-semibold";
+
   const styles = {
     primary:
       base + " text-blue-700 bg-blue-100 dark:bg-blue-900 dark:text-blue-400 ",
@@ -17,7 +23,7 @@ function Badge({ children, type }) {
 
   return (
     <>
-      <span className={styles[type]}>{children}</span>
+      <span className={styles[badgeType]}>{badgeTitle}</span>
     </>
   );
 }
