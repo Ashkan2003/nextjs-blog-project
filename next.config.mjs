@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    // config next-image remote-img-url
     images: {
         remotePatterns: [
             {

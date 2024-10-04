@@ -2,12 +2,8 @@ import React from "react";
 import Posts from "./Posts";
 import { Metadata } from "next";
 
-const BlogPosts = () => {
-  return (
-    <>
-      <Posts />
-    </>
-  );
+const BlogPostsPage = () => {
+  return <Posts />;
 };
 
 export const metadata: Metadata = {
@@ -15,4 +11,4 @@ export const metadata: Metadata = {
   description: "View all project posts",
 };
 
-export default BlogPosts;
+export default BlogPostsPage;

@@ -2,6 +2,7 @@ import { PostCardType } from "@/types/postType";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
+// fetch all posts from db
 export const usePosts = () => {
   const {
     isLoading: isLoadingPosts,

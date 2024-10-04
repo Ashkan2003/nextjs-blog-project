@@ -7,6 +7,7 @@ import React from "react";
 import toast from "react-hot-toast";
 import { FaRegClock } from "react-icons/fa";
 import Head from "next/head";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: { slug: string };
@@ -16,7 +17,8 @@ const PostDetailsPage = ({ params }: Props) => {
   const { currentPost, isLoadingPost, error } = usePostById(params.slug);
 
   if (isLoadingPost) return <FullPageSpinner />;
-  if (!currentPost) return toast.error("لطفا اتصال اینترنتی خود را چک کنید.");
+  if (error) return toast.error("لطفا اتصال اینترنتی خود را چک کنید");
+  if (!currentPost) return notFound(); // if no post were found with the given slug then return 404 page
 
   const postCardWrittenDate = currentPost.date.slice(0, 10);
 
