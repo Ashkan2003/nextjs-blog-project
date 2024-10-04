@@ -25,7 +25,7 @@ const Navbar = () => {
             <UserButton />
           ) : (
             <button className=" rounded-md border-2 border-blue-600  bg-blue-600 px-5 py-2 font-semibold text-white transition-all  hover:bg-indigo-600 ">
-              <SignInButton mode="modal">
+              <SignInButton forceRedirectUrl="/blogPosts" mode="modal">
                 <p className="cursor-pointer">ورود/ثبت نام</p>
               </SignInButton>
             </button>

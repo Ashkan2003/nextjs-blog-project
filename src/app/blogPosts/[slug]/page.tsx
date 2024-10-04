@@ -93,7 +93,7 @@ const PostDetailsPage = ({ params }: Props) => {
       {/* post-excerpt */}
       <div className="text-white text-3xl flex flex-col w-full bg-gradient-to-b from-[#fff0] to-[#000000]  p-11  gap-5">
         <h1>توضیحات بیشتر :</h1>
-        <p>{currentPost.excerpt.rendered}</p>
+        <p className="leading-relaxed">{currentPost.excerpt.rendered}</p>
       </div>
     </div>
   );
