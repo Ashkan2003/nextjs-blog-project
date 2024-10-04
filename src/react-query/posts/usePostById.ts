@@ -1,3 +1,4 @@
+import { AuthorPostCardType } from "@/types/authorPostType";
 import { PostCardType } from "@/types/postType";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -9,7 +10,7 @@ export const usePostById = (postSlug: string) => {
     isLoading: isLoadingPost,
     error,
     data: currentPost,
-  } = useQuery<PostCardType>({
+  } = useQuery<PostCardType | AuthorPostCardType>({
     queryFn: async () =>
       await axios({
         method: "get",

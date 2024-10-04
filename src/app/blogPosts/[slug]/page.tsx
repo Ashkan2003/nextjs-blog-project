@@ -17,8 +17,14 @@ const PostDetailsPage = ({ params }: Props) => {
   const { currentPost, isLoadingPost, error } = usePostById(params.slug);
 
   if (isLoadingPost) return <FullPageSpinner />;
-  if (error) return toast.error("لطفا اتصال اینترنتی خود را چک کنید");
-  if (!currentPost) return notFound(); // if no post were found with the given slug then return 404 page
+  if (!currentPost) {
+    if (error) {
+      toast.error("لطفا اتصال اینترنتی خود را چک کنید");
+    }
+    return notFound(); // if no post were found with the given slug then return 404 page
+  }
+
+  console.log(currentPost, "post-details-fetched-from-supabase");
 
   const postCardWrittenDate = currentPost.date.slice(0, 10);
 
@@ -53,7 +59,7 @@ const PostDetailsPage = ({ params }: Props) => {
           <div className="absolute w-full h-full bg-gradient-to-b from-[#ffffff00] to-[#121212] " />
           <div className="absolute p-5 flex flex-col gap-6 text-white">
             {/* post-title */}
-            <p className="text-[25px] ">{currentPost?.title}</p>
+            <p className="text-[25px] ">{currentPost.title}</p>
             <div className="flex flex-wrap text-[14px]  items-center w-full gap-5">
               {/* post-status */}
               <div className="flex pt-1">

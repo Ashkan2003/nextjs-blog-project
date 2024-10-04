@@ -16,13 +16,7 @@ export type PostCardType = {
     rendered: string;
     protected: boolean;
   };
-  categories: [
-    {
-      id: number;
-      name: "دسته اخبار" | "دسته اطلاعات";
-      slug: string;
-    }
-  ];
+  categories: CategoriesType[];
   featured_media_object: {
     id: number;
     title: string;
@@ -35,4 +29,10 @@ export type PostCardType = {
     };
     source_url: string;
   };
+};
+
+export type CategoriesType = {
+  id: number;
+  name: "دسته اخبار" | "دسته اطلاعات";
+  slug: string;
 };
