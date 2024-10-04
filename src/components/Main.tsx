@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 import FullPageSpinner from "./ui/FullPageSpinner";
+
 const Main = () => {
   // this useUser is a hook provided by clerk for client components to get the user authState
   const { isLoaded, isSignedIn, user } = useUser();

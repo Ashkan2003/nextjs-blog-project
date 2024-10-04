@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
-
 import React from "react";
 import { GoHomeFill } from "react-icons/go";
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+
 const Navbar = () => {
   // this useUser is a hook provided by clerk for client components to get the user authState
   const { isLoaded, isSignedIn, user } = useUser();
